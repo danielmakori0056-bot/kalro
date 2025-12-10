@@ -1,386 +1,344 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KALRO — Kenya Agricultural & Livestock Research Organisation</title>
-  <meta name="description" content="KALRO — Research, innovation and translation in agriculture and livestock to improve livelihoods and food security in Kenya." />
-  <meta name="author" content="KALRO" />
-  <link
-    rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%234c9a2a'/><text x='50' y='58' font-size='42' text-anchor='middle' fill='white' font-family='Arial'>K</text></svg>"
-  />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DELAMERE DAIRY FARM</title>
 
-  <style>
-    :root {
-      --accent: #4c9a2a;
-      --dark: #2f3e1f;
-      --muted: #7b8b6f;
-      --glass: rgba(255, 255, 255, 0.09);
-      --maxw: 1200px;
-      --radius: 14px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
-        'Helvetica Neue', Arial;
-    }
+    <link rel="icon" type="image/png" href="your-logo.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-    * { box-sizing: border-box; }
+    <style>
+        /* GENERAL */
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            background: #f3f5f1;
+            color: #2e332d;
+            font-size: 20px;
+        }
 
-    html, body { height: 100%; }
+        :root {
+            --primary: #2f5f3b;
+            --primary-light: #3f7a4e;
+            --background-light: #ffffff;
+            --card-bg: #ffffff;
+            --border: #d4d9d2;
+        }
 
-    body {
-      margin: 0;
-      padding-top: 110px;
-      background: linear-gradient(180deg, #fcfdf7 0%, #eef7e5 60%);
-      color: var(--dark);
-      line-height: 1.45;
-      font-size: 16px;
-    }
+        /* ⭐ NEW MODERN HEADER STYLE ⭐ */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(47, 95, 59, 0.97);
+            width: 100%;
+            z-index: 1200;
+            padding: 12px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
 
-    .container {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 28px;
-      width: 100%;
-    }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      padding: 16px 28px;
-      z-index: 999;
-      box-shadow: 0 4px 12px rgba(76,154,42,0.18);
-    }
+        /* Header inner container */
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            width: 100%;
+            max-width: 1100px;
+            padding: 0 20px;
+        }
 
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .logo {
-      width: 56px; height: 56px; border-radius: 12px;
-      background: var(--accent); display: flex; align-items: center;
-      justify-content: center; color: white; font-weight: 700;
-      font-size: 22px; box-shadow: rgba(76,154,42,0.25) 0 6px 18px;
-    }
+        /* Logo */
+        .header-logo img {
+            width: 75px;
+            height: 75px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
 
-    nav a {
-      margin-left: 16px;
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 600;
-    }
+        /* Text block */
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.1;
+        }
 
-    .cta {
-      background: var(--accent);
-      color: white;
-      padding: 10px 14px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-    }
+        .header-text h1 {
+            font-size: 34px;
+            color: #fff;
+            margin: 0;
+            letter-spacing: 1px;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px; margin-top: 22px;
-    }
+        .header-text p {
+            margin: 5px 0 0 0;
+            color: #e7ffe7;
+            font-size: 18px;
+        }
 
-    .card {
-      background: white; padding: 18px; border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(76, 154, 42, 0.08);
-      text-align: center;
-    }
+        /* SUBHEADER */
+        .subheader {
+            position: sticky;
+            top: 108px;
+            width: 100%;
+            background: var(--primary-light);
+            color: #fff;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 20px;
+            z-index: 999;
+        }
 
-    .card img {
-      width: 100%; height: 150px; object-fit: cover;
-      border-radius: 10px;
-    }
+        /* CONTENT */
+        .container {
+            width: 92%;
+            max-width: 1100px;
+            margin: auto;
+            padding-top: 50px;
+        }
 
-    /* BUY NOW BUTTON */
-    .buy-btn {
-      margin-top: 12px;
-      width: 100%;
-      padding: 10px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-      font-size: 15px;
-      transition: 0.2s;
-    }
-    .buy-btn:hover { background: #3f7d22; }
+        h2, h4 {
+            font-size: 32px;
+            color: var(--primary);
+            font-weight: 700;
+        }
 
-    footer {
-      margin-top: 34px;
-      padding: 22px;
-      border-top: 1px solid rgba(47, 62, 31, 0.08);
-      display: flex;
-      justify-content: space-between;
-    }
-  </style>
+        p, li {
+            font-size: 21px;
+            line-height: 1.7;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .gallery-box {
+            background: var(--background-light);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        }
+
+        .gallery-box img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .price-tag {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2f5f3b;
+            margin: 10px 0;
+        }
+
+        .buy-btn {
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .buy-btn:hover {
+            background: var(--primary-light);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p i {
+            margin-right: 8px;
+        }
+
+        /* FLOAT BUTTONS */
+        .whatsapp-float, .call-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            right: 25px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+            z-index: 1001;
+        }
+
+        .whatsapp-float {
+            bottom: 25px;
+            background: #25D366;
+        }
+
+        .whatsapp-float img {
+            width: 48px;
+        }
+
+        .call-float {
+            bottom: 110px;
+            background: #2f5f3b;
+            color: white;
+            font-size: 46px;
+        }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 22px;
+            }
+
+            .header-text p {
+                font-size: 14px;
+            }
+
+            .header-logo img {
+                width: 55px;
+                height: 55px;
+            }
+
+            .subheader {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <header>
-      <div class="brand">
-        <div class="logo">KA</div>
-        <div>
-          <h1>KALRO</h1>
-          <p>Kenya Agricultural &amp; Livestock Research Organisation</p>
+<!-- ⭐ IMPROVED HEADER ⭐ -->
+<header>
+    <div class="header-content">
+        <div class="header-logo">
+            <img src="logo.jfif" alt="Farm Logo">
         </div>
-      </div>
-    </header>
 
-    <main>
-
-      <!-- PURE DOPER -->
-      <section class="hero-card" style="margin-top: 18px">
-        <h3>PURE DOPER</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="images/pure doper/pu01.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Pure%20Doper','_blank')">
-              BUY NOW
-            </button>
-          </div>
-
-          <div class="card">
-            <img src="images/pure doper/pu02.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Pure%20Doper','_blank')">
-              BUY NOW
-            </button>
-          </div>
+        <div class="header-text">
+            <h1>DELAMERE DAIRY FARM</h1>
+            <p>Kenya Agricultural & Livestock Research Organisation</p>
         </div>
-      </section>
+    </div>
+</header>
 
-      <!-- JERSEY HEIFERS -->
-      <section class="hero-card" style="margin-top: 18px">
-        <h3>JERSEY HEIFERS</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="je01.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Jersey%20Heifers','_blank')">
-              BUY NOW
-            </button>
-          </div>
+<!-- SUBHEADER -->
+<div class="subheader">
+    Premium livestock for farmers nationwide — quality calves, goats, rams & dairy cows.
+</div>
 
-          <div class="card">
-            <img src="je02.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Jersey%20Heifers','_blank')">
-              BUY NOW
-            </button>
-          </div>
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <div class="section">
+        <h2>Welcome to Delamere Dairy Farm</h2>
+        <p>
+            We specialize in supplying strong, healthy, productive livestock including dairy calves,
+            Dorper sheep, rams, goats, and high-yielding Fresian cows. Our farm prioritizes quality,
+            genetics, and reliable performance.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Our Livestock Categories</h2>
+        <ul>
+            <li>Pure healthy calves (4–7 months)</li>
+            <li>Registered Dorper lambs</li>
+            <li>Dorper rams (ready to serve)</li>
+            <li>Second-calving Fresian dairy cows</li>
+            <li>Quality dairy goats</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Livestock Gallery</h2>
+
+        <div class="gallery">
+
+            <div class="gallery-box">
+                <img src="pu1.jfif">
+                <h4>Pure Calves</h4>
+                <div class="price-tag">KSh @25k–@67k • 4–7 months</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
+            <div class="gallery-box">
+                <img src="rigisterd doper.jfif">
+                <h4>Registered Dorper</h4>
+                <div class="price-tag">KSh 6k–10k • 3–5 months</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
+            <div class="gallery-box">
+                <img src="second calving.jfif">
+                <h4>Second Calving (Incalf)</h4>
+                <div class="price-tag">KSh 165k–245k • 7.5 months incalf</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
+            <div class="gallery-box">
+                <img src="every farmers dream goat.jfif">
+                <h4>Farmer’s Dream Goat</h4>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
+            <div class="gallery-box">
+                <img src="registerd dopper 11.jfif">
+                <h4>Registered Dorper Ram</h4>
+                <div class="price-tag">KSh 10k–50k • Ready to serve</div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+
         </div>
-      </section>
+    </div>
+</div>
 
-      <!-- FRESHIAN HEIFERS -->
-      <section class="hero-card" style="margin-top: 18px">
-        <h3>FRESHIAN HEIFERS</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="fr01.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Freshian%20Heifers','_blank')">
-              BUY NOW
-            </button>
-          </div>
+<!-- FOOTER -->
+<footer>
+    <h2 style="font-size:26px;">Contact Us</h2>
 
-          <div class="card">
-            <img src="fr02.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Freshian%20Heifers','_blank')">
-              BUY NOW
-            </button>
-          </div>
-        </div>
-      </section>
+    <p><i class="bx bx-phone"></i><b>Phone:</b> 0735007665 / 0208355659</p>
+    <p><i class="bx bxl-whatsapp"></i><b>WhatsApp:</b> 0735007665</p>
+    <p><i class="bx bx-envelope"></i><b>Email:</b> delameredairyfarm1@gmail.com</p>
+    <p><i class="bx bx-map"></i><b>Location:</b> Naivasha, Delamere Farm</p>
 
-      <!-- FLECKVIEW -->
-      <section class="hero-card" style="margin-top: 18px">
-        <h3>FLECKVIEW HEIFERS</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="fl01.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Fleckview%20Heifers','_blank')">
-              BUY NOW
-            </button>
-          </div>
+    <br>
+    <p>© 2025 Delamere Dairy Farm — All Rights Reserved</p>
+</footer>
 
-          <div class="card">
-            <img src="fl02.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Fleckview%20Heifers','_blank')">
-              BUY NOW
-            </button>
-          </div>
-        </div>
-      </section>
+<!-- FLOAT BUTTONS -->
+<a href="tel:0735007665" class="call-float">
+    <i class="bx bx-phone-call"></i>
+</a>
 
-      <!-- CALVES -->
-      <section class="hero-card" style="margin-top: 18px">
-        <h3>CALVES</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="ca1.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Calves','_blank')">
-              BUY NOW
-            </button>
-          </div>
-
-          <div class="card">
-            <img src="ca2.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Calves','_blank')">
-              BUY NOW
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- DORPER -->
-      <section class="hero-card" style="margin-top: 18px">
-        <h3>PURE DORPER SHEEP</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="pu02.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Dorper%20Sheep','_blank')">
-              BUY NOW
-            </button>
-          </div>
-
-          <div class="card">
-            <img src="pu01.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Dorper%20Sheep','_blank')">
-              BUY NOW
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- HAMPSHIRE -->
-      <section class="hero-card" style="margin-top: 18px">
-        <h3>HAMPSHIRE SHEEP</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="ha1.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Hampshire%20Sheep','_blank')">
-              BUY NOW
-            </button>
-          </div>
-
-          <div class="card">
-            <img src="ha1.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Hampshire%20Sheep','_blank')">
-              BUY NOW
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- DAIRY GOATS -->
-      <section class="hero-card" style="margin-top: 18px">
-        <h3>DAIRY GOATS</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="da1.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Dairy%20Goats','_blank')">
-              BUY NOW
-            </button>
-          </div>
-
-          <div class="card">
-            <img src="da02.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Dairy%20Goats','_blank')">
-              BUY NOW
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- BOER GOAT -->
-      <section class="hero-card" style="margin-top: 18px">
-        <h3>BOER GOAT</h3>
-        <div class="grid">
-          <div class="card">
-            <img src="bo02.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Boer%20Goat','_blank')">
-              BUY NOW
-            </button>
-          </div>
-
-          <div class="card">
-            <img src="bo01.jfif" />
-            <button class="buy-btn"
-              onclick="window.open('https://wa.me/254762457938?text=Hello%20I%E2%80%99m%20interested%20in%20Boer%20Goat','_blank')">
-              BUY NOW
-            </button>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div>
-        <strong>KALRO</strong>
-        <div class="muted">P.O. Box 57811, Nairobi — Kenya</div>
-        <div class="muted" style="margin-top: 8px; font-size: 13px">
-          Phone: +254 762457938 &nbsp; | &nbsp; Email: kalrofarmkenya@gmail.com
-        </div>
-      </div>
-
-      <div class="muted" style="margin-top: 10px; font-size: 13px">
-        © <span id="year"></span> KALRO. All rights reserved.
-      </div>
-    </footer>
-
-  </div>
-
-  <!-- FLOATING WHATSAPP ICON -->
-  <a href="https://wa.me/254762457938"
-     target="_blank"
-     style="
-       position: fixed;
-       bottom: 20px;
-       right: 20px;
-       background: #25d366;
-       width: 58px;
-       height: 58px;
-       border-radius: 50%;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-       z-index: 9999;
-     ">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-         alt="WhatsApp"
-         style="width: 34px; height: 34px;" />
-  </a>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<a href="https://wa.me/254735007665" target="_blank" class="whatsapp-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
 
 </body>
 </html>
-
