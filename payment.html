@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KALRO — Payment</title>
+
+<style>
+body {
+  font-family: system-ui, Arial;
+  background: linear-gradient(180deg,#fcfdf7,#eef7e5);
+  color: darkgreen;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 120px auto 40px auto;
+  padding: 24px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #35751a;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #3f7d22;
+}
+
+.summary {
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.payment-option input {
+  margin-right: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Complete Your Payment</h2>
+
+<div class="summary">
+  <h3>Order Summary</h3>
+  <p><strong>Item:</strong> <span id="itemTitle">Loading...</span></p>
+  <p><strong>Price:</strong> <span id="itemPrice">Loading...</span></p>
+</div>
+
+<form id="paymentForm">
+  <label for="name">Full Name</label>
+  <input type="text" id="name" name="name" required placeholder="John Doe">
+
+  <label for="phone">Phone Number</label>
+  <input type="tel" id="phone" name="phone" required placeholder="+2547XXXXXXXX">
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required placeholder="example@mail.com">
+
+  <label>Payment Method</label>
+  <div class="payment-option">
+    <input type="radio" id="mpesa" name="payment" value="M-Pesa" checked>
+    <label for="mpesa">M-Pesa</label>
+  </div>
+  <div class="payment-option">
+    <input type="radio" id="card" name="payment" value="Credit/Debit Card">
+    <label for="card">Credit/Debit Card</label>
+  </div>
+  <div class="payment-option">
+    <input type="radio" id="cod" name="payment" value="Cash on Delivery">
+    <label for="cod">Cash on Delivery</label>
+  </div>
+
+  <button type="submit">Pay Now</button>
+</form>
+</div>
+
+<script>
+// Get item info from query string
+const params = new URLSearchParams(window.location.search);
+const itemTitle = params.get("item") || "Unknown Item";
+const itemPrice = params.get("price") || "N/A";
+
+document.getElementById("itemTitle").textContent = itemTitle;
+document.getElementById("itemPrice").textContent = itemPrice;
+
+// Handle form submission
+document.getElementById("paymentForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const payment = document.querySelector('input[name="payment"]:checked').value;
+
+  alert(`Thank you ${name}!\nYou have chosen ${payment} to pay for ${itemTitle} (${itemPrice}).\nWe will contact you shortly.`);
+});
+</script>
+
+</body>
+</html>
