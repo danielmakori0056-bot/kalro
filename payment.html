@@ -25,24 +25,13 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,.1);
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+h2 { text-align: center; }
 
-label {
-  display: block;
-  margin: 12px 0 6px;
-  font-weight: 600;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 8px;
+.summary {
   border: 1px solid #ccc;
-  font-size: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 button {
@@ -60,23 +49,6 @@ button {
 button:hover {
   background: #3f7d22;
 }
-
-.summary {
-  border: 1px solid #ccc;
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.payment-option {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.payment-option input {
-  margin-right: 10px;
-}
 </style>
 </head>
 
@@ -88,62 +60,34 @@ button:hover {
 <div class="summary">
   <h3>Order Summary</h3>
   <p><strong>Item:</strong> <span id="itemTitle"></span></p>
-  <p><strong>Price:</strong> ₦<span id="itemPrice"></span></p>
+  <p><strong>Price:</strong> KSh <span id="itemPrice"></span></p>
 </div>
 
-<form id="paymentForm">
-  <label>Full Name</label>
-  <input type="text" id="name" required>
-
-  <label>Phone Number</label>
-  <input type="tel" id="phone" required>
-
-  <label>Email</label>
-  <input type="email" id="email" required>
-
-  <label>Payment Method</label>
-  <div class="payment-option">
-    <input type="radio" name="payment" value="paystack" checked>
-    <label>M-Pesa / Card (Paystack)</label>
-  </div>
-  <div class="payment-option">
-    <input type="radio" name="payment" value="cod">
-    <label>Cash on Delivery</label>
-  </div>
-
-  <button type="submit">Pay Now</button>
-</form>
+<button id="payNowBtn">Pay Now</button>
 </div>
 
 <script>
+// Get product info from URL query parameters
 const params = new URLSearchParams(window.location.search);
 const itemTitle = params.get("item") || "Product";
-const itemPrice = params.get("price") || "0";
+const itemPrice = Number(params.get("price")) || 0;
 
 document.getElementById("itemTitle").textContent = itemTitle;
 document.getElementById("itemPrice").textContent = itemPrice;
 
-document.getElementById("paymentForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
-
-  if (paymentMethod === "paystack") {
-    payWithPaystack(email, itemPrice);
-  } else {
-    alert(`Thank you ${name}! Your Cash on Delivery order has been placed.`);
-  }
-});
-
-function payWithPaystack(email, amount) {
+// Paystack payment function
+function payWithPaystack() {
   let handler = PaystackPop.setup({
-    // key: 'pk_live_xxxxxxxxxxxxxxxx', // ✅ PUBLIC KEY ONLY
-    email: email,
-    amount: amount * 100,
-    currency: 'NGN',
+    key: sk_live_69925490b72c2eb258d6e5d7d2e9f778761a0c03, // 🔑 Replace with your PUBLIC key
+    email: prompt("Enter your email for payment:"), // simple prompt for email
+    amount: itemPrice * 100, // Paystack expects amount in cents
+    currency: 'KES',
     ref: 'KALRO_' + Date.now(),
+    metadata: {
+      custom_fields: [
+        { display_name: "Product", value: itemTitle }
+      ]
+    },
     callback: function(response) {
       alert('Payment successful! Reference: ' + response.reference);
       // TODO: verify payment on backend
@@ -152,9 +96,11 @@ function payWithPaystack(email, amount) {
       alert('Payment cancelled');
     }
   });
-
   handler.openIframe();
 }
+
+// Trigger Paystack when "Pay Now" button is clicked
+document.getElementById("payNowBtn").addEventListener("click", payWithPaystack);
 </script>
 
 </body>
