@@ -63,7 +63,7 @@ button:hover {
   <p><strong>Price:</strong> KSh <span id="itemPrice"></span></p>
 </div>
 
-<button id="payNowBtn" >Pay Now</a></button>
+<button id="payNowBtn">Pay Now</button>
 </div>
 
 <script>
@@ -77,25 +77,33 @@ document.getElementById("itemPrice").textContent = itemPrice;
 
 // Paystack payment function
 function payWithPaystack() {
+
+  const email = prompt("Enter your email for payment:");
+  if (!email) {
+    alert("Email is required to continue.");
+    return;
+  }
+
   let handler = PaystackPop.setup({
-     key: pk_live_5c73d3ff315f5091d1ce1a7216a479ec36939810, // 🔑 Replace with your PUBLIC key
-    email: prompt("Enter your email for payment:"), // simple prompt for email
-    amount: itemPrice * 100, // Paystack expects amount in cents
-    currency: 'KES',
-    ref: 'KALRO_' + Date.now(),
+    key: "pk_live_5c73d3ff315f5091d1ce1a7216a479ec36939810",
+    email: email,
+    amount: itemPrice * 100,
+    currency: "KES",
+    ref: "KALRO_" + Date.now(),
     metadata: {
       custom_fields: [
         { display_name: "Product", value: itemTitle }
       ]
     },
     callback: function(response) {
-      alert('Payment successful! Reference: ' + response.reference);
+      alert("Payment successful! Reference: " + response.reference);
       // TODO: verify payment on backend
     },
     onClose: function() {
-      alert('Payment cancelled');
+      alert("Payment cancelled");
     }
   });
+
   handler.openIframe();
 }
 
