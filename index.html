@@ -94,7 +94,47 @@ footer{
   display:flex;
   justify-content:space-between;
 }
+  /* Floating WhatsApp & Call Buttons */
+.fab-container{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:1000;
+}
+
+.fab{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:28px;
+  box-shadow:0 6px 16px rgba(0,0,0,.25);
+  text-decoration:none;
+  transition:transform .2s, box-shadow .2s;
+}
+
+.fab:hover{
+  transform:scale(1.08);
+  box-shadow:0 10px 22px rgba(0,0,0,.3);
+}
+
+.fab.whatsapp{
+  background:#25D366;
+}
+
+.fab.call{
+  background:#35751a;
+}
+
 </style>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -271,6 +311,16 @@ Phone: +254 762457938
 </footer>
 
 </div>
+<!-- Floating Action Buttons -->
+<div class="fab-container">
+  <a href="https://wa.me/254762457938" target="_blank" class="fab whatsapp">
+    <i class="bx bxl-whatsapp"></i>
+  </a>
+
+  <a href="tel:+254762457938" class="fab call">
+    <i class="bx bx-phone-call"></i>
+  </a>
+</div>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -278,4 +328,5 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+
 
