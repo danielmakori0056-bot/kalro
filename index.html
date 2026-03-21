@@ -314,6 +314,345 @@ header{
   <div class="card"><img src="lucern seed.jfif" class="lightbox-img"><a class="buy-btn" href="payment.html?item=Lucern Seed">Order Now</a><a href="payment.html?item=Lucern Seed">Buy Now</a><div class="price-tag">KSH1250</div></div>
 </div>
 </section>
+  <!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>KALRO — Hay Products</title>
+
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#4c9a2a;
+  --dark:#2f3e1f;
+  --maxw:1200px;
+}
+
+body{
+  margin:0;
+  padding-top:100px;
+  font-family:system-ui,Segoe UI,Arial;
+  background:linear-gradient(180deg,#fcfdf7,#eef7e5);
+  color:darkgreen;
+}
+
+/* HEADER */
+header{
+  position:fixed; top:0; left:0; right:0;
+  background:#ffffffee;
+  backdrop-filter:blur(8px);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:10px 20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.12);
+  z-index:999;
+}
+
+.logo img{
+  width:60px;
+  border-radius:10px;
+}
+
+.container{
+  max-width:var(--maxw);
+  margin:auto;
+  padding:24px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:16px;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+.card h3{
+  margin-bottom:10px;
+  color:var(--accent);
+}
+
+/* CAROUSEL */
+.carousel{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+}
+
+.carousel img{
+  min-width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
+  scroll-snap-align:center;
+}
+
+/* BUTTON */
+.buy-btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px;
+  background:#35751a;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* POPUP */
+#orderPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:2000;
+  align-items:center;
+  justify-content:center;
+}
+
+#orderPopup form input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+}
+
+/* MODAL */
+#modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:black;
+  z-index:3000;
+  justify-content:center;
+  align-items:center;
+}
+
+#modal img{
+  max-width:90%;
+  max-height:90%;
+}
+
+#close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:40px;
+  color:white;
+  cursor:pointer;
+}
+
+.price-tag{
+  margin-top:8px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>HAY PRODUCTS</h2>
+
+<div class="grid">
+
+<!-- LUCERNE -->
+<div class="card">
+  <h3>LUCERNE HAY</h3>
+  <div class="carousel">
+    <img src="hay1.jfif" onclick="openModal(0,0)">
+    <img src="hay 2.jfif" onclick="openModal(0,1)">
+    <img src="hay3.jfif" onclick="openModal(0,2)">
+    <img src="hay 2.jfif" onclick="openModal(0,3)">
+  </div>
+
+  <div class="buy-btn" onclick="openPopup('Lucerne Hay')">Order Now</div>
+
+  <a class="buy-btn"
+  href="https://wa.me/254762457938?text=KALRO%20ORDER%0AItem:%20Lucerne%20Hay">
+  Buy Now</a>
+
+  <div class="price-tag">KSH 400 • 25kg</div>
+</div>
+
+<!-- BOMA RHODES -->
+<div class="card">
+  <h3>BOMA RHODES</h3>
+  <div class="carousel">
+    <img src="boma rhodes 1.jfif" onclick="openModal(1,0)">
+    <img src="boma rhodes 2.jfif" onclick="openModal(1,1)">
+    <img src="boma rhodes 3.jfif" onclick="openModal(1,2)">
+    <img src="boma rhodes 4.jfif" onclick="openModal(1,3)">
+  </div>
+
+  <div class="buy-btn" onclick="openPopup('Boma Rhodes')">Order Now</div>
+
+  <a class="buy-btn"
+  href="https://wa.me/254762457938?text=KALRO%20ORDER%0AItem:%20Boma%20Rhodes">
+  Buy Now</a>
+
+  <div class="price-tag">KSH 200 • 18kg</div>
+</div>
+
+<!-- BARLEY -->
+<div class="card">
+  <h3>BARLEY HAY</h3>
+  <div class="carousel">
+    <img src="barleys hay 1.jfif" onclick="openModal(2,0)">
+    <img src="barleys hay 2.jfif" onclick="openModal(2,1)">
+    <img src="barleys hay 3.jfif" onclick="openModal(2,2)">
+    <img src="barleys hay 4.jfif" onclick="openModal(2,3)">
+  </div>
+
+  <div class="buy-btn" onclick="openPopup('Barley Hay')">Order Now</div>
+
+  <a class="buy-btn"
+  href="https://wa.me/254762457938?text=KALRO%20ORDER%0AItem:%20Barley%20Hay">
+  Buy Now</a>
+
+  <div class="price-tag">Premium livestock feed</div>
+</div>
+
+</div>
+</div>
+
+<!-- ORDER POPUP -->
+<div id="orderPopup">
+<div style="background:#fff;padding:20px;border-radius:12px;width:90%;max-width:420px;position:relative;">
+<button onclick="closePopup()" style="position:absolute;right:10px;top:10px;border:none;font-size:20px;">×</button>
+
+<h3>Order Product</h3>
+
+<form id="orderForm">
+<input type="hidden" id="itemName">
+<input required id="name" placeholder="Full Name">
+<input required id="phone" placeholder="Phone Number">
+<input required id="location" placeholder="Location">
+<input required id="quantity" type="number" min="1" placeholder="Quantity">
+
+<button style="width:100%;padding:12px;background:#35751a;color:#fff;border:none;border-radius:10px;font-weight:700;">
+Send to WhatsApp
+</button>
+</form>
+</div>
+</div>
+
+<!-- MODAL -->
+<div id="modal">
+<span id="close">&times;</span>
+<img id="modalImg">
+</div>
+
+<script>
+const WHATSAPP = "254762457938";
+
+// IMAGE GROUPS
+const galleries = [
+  ["hay1.jfif","hay 2.jfif","hay3.jfif","hay 2.jfif"],
+  ["boma rhodes 1.jfif","boma rhodes 2.jfif","boma rhodes 3.jfif","boma rhodes 4.jfif"],
+  ["barleys hay 1.jfif","barleys hay 2.jfif","barleys hay 3.jfif","barleys hay 4.jfif"]
+];
+
+let currentGallery = 0;
+let currentIndex = 0;
+let startX = 0;
+
+// MODAL IMAGE
+function openModal(g,i){
+  currentGallery = g;
+  currentIndex = i;
+  document.getElementById("modal").style.display="flex";
+  show();
+}
+
+function show(){
+  document.getElementById("modalImg").src =
+    galleries[currentGallery][currentIndex];
+}
+
+function next(){
+  currentIndex = (currentIndex + 1) % galleries[currentGallery].length;
+  show();
+}
+
+function prev(){
+  currentIndex = (currentIndex - 1 + galleries[currentGallery].length) %
+                 galleries[currentGallery].length;
+  show();
+}
+
+// SWIPE
+const modal = document.getElementById("modal");
+
+modal.addEventListener("touchstart",e=>{
+  startX = e.touches[0].clientX;
+});
+
+modal.addEventListener("touchend",e=>{
+  let diff = startX - e.changedTouches[0].clientX;
+  if(diff > 50) next();
+  else if(diff < -50) prev();
+});
+
+// CLOSE MODAL
+document.getElementById("close").onclick = ()=> modal.style.display="none";
+
+modal.addEventListener("click",e=>{
+  if(e.target.id==="modal"){
+    modal.style.display="none";
+  }
+});
+
+// POPUP
+function openPopup(item){
+  document.getElementById("itemName").value = item;
+  document.getElementById("orderPopup").style.display = "flex";
+}
+
+function closePopup(){
+  document.getElementById("orderPopup").style.display = "none";
+}
+
+// WHATSAPP FORM
+document.getElementById("orderForm").addEventListener("submit",e=>{
+  e.preventDefault();
+
+  const item = document.getElementById("itemName").value;
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const location = document.getElementById("location").value;
+  const quantity = document.getElementById("quantity").value;
+
+  const msg = `KALRO ORDER
+Item: ${item}
+Name: ${name}
+Phone: ${phone}
+Location: ${location}
+Quantity: ${quantity}`;
+
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,"_blank");
+
+  closePopup();
+  e.target.reset();
+});
+</script>
+
+</body>
+</html>
+
 
 <!-- CONTACT -->
 <section id="contact" class="hero-card" style="margin-top:18px">
